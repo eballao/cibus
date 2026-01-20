@@ -30,4 +30,9 @@ public class TipoDeCozinhaController {
         tipoDeCozinhaRepository.save(novoTipoDeCozinha);
         return new ResponseEntity<>(new TipoDeCozinhaResponse(novoTipoDeCozinha), HttpStatus.CREATED);
     }
+
+    @GetMapping("/relatorio/restaurantes-por-tipo-de-cozinha")
+    public List<RestaurantesPorTipoDeCozinha> relatorio(){
+        return tipoDeCozinhaRepository.contaQuantidadeRestaurantesPorTipoDeCozinha();
+    }
 }
